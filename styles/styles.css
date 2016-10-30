@@ -13,7 +13,7 @@ input[type="text"] {
   float: left;
   margin-left: 10px;
 }
-.loader {
+/*.loader {
   display: none;
   margin-left: 5px;
   font-size: 10px;
@@ -33,7 +33,7 @@ input[type="text"] {
   border-radius: 50%;
   width: 3em;
   height: 3em;
-}
+}*/
 @-webkit-keyframes load8 {
   0% {
     -webkit-transform: rotate(0deg);
