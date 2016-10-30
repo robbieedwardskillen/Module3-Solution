@@ -10,7 +10,7 @@ angular.module('NarrowItDownApp', [])
 function FoundItemsDirective(){
 	var ddo = {
 		templateUrl: 'itemsloaderindicator.template.html',
-		scope: { 
+		scope: {
 			empty: '<',
 			found: '<',
 			onRemove: '&'
@@ -62,9 +62,9 @@ function NarrowItDownController(MenuSearchService){
 			var promise = MenuSearchService.getMatchedMenuItems(viewList.itemName)
 			.then(function(result){
 				viewList.foundItems = result;
-				
+				console.log(viewList.foundItems);
 			}).catch(function(error){
-				return error;
+				console.log(error);
 			});
 		}
 	};
@@ -80,13 +80,10 @@ function MenuSearchService($http, ApiBasePath){
 	service.getMatchedMenuItems = function(searchTerm){
 		return $http({
 			method: "GET",
-			url: (ApiBasePath + "/categories.json"),
-			params: {
-				category: searchTerm
-			}
+			url: (ApiBasePath + "/menu_items.json"),
 		}).then(function(result){
-			var allItems = result.data;
-			
+			var allItems = result.data.menu_items;
+			console.log(result);
 			for (var i = 0; i < allItems.length; i++){
 				if (allItems[i].name.toLowerCase().indexOf(searchTerm.toLowerCase()) === -1){
 				}
